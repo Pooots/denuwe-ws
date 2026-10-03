@@ -1,0 +1,19 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Pass Authorization headers to PHP (JWT Bearer)
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # /api is handled by public_html/api/index.php (do NOT rewrite outside public_html)
+    RewriteRule ^api(?:/|$) - [L]
+
+    # Serve real SPA files
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # SPA fallback
+    RewriteRule ^ index.html [L]
+</IfModule>
