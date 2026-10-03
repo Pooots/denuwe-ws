@@ -27,7 +27,7 @@ class UserProfileController extends Controller
         $theirFriends = Friendship::friendIdsOf($user->id);
         $mutual = $isSelf ? 0 : count(array_intersect($theirFriends, Friendship::friendIdsOf($viewerId)));
 
-        $profile = UserPresenter::person($user) + [
+        $profile = UserPresenter::person($user) + $user->profileBackground() + [
             'first_name' => $user->first_name,
             'relationship' => $relationship,
             'mutual_count' => $mutual,

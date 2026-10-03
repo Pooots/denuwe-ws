@@ -47,6 +47,8 @@ All under `/api/v1`, Bearer auth required. Each returns `{ message, user }`.
 | PATCH | `/profile` | `first_name`, `last_name` (required), `headline` (160), `pronouns` (32), `location` (120), `bio` (2000), `website` (URL; `https://` added if missing), `contact_email`, `contact_phone` (7–15 digits, optional leading `+`; spaces and dashes removed) — contact details shown on your profile to your society, separate from the `email`/`phone` you sign in with |
 | POST / DELETE | `/profile/avatar` | multipart `image` (max 5 MB) when uploading |
 | POST / DELETE | `/profile/banner` | multipart `image` (max 8 MB) when uploading |
+| PATCH | `/profile/background` | `background` (`none`, a template id or `photo`), optional `effect` (`natural`, `soft`, `frosted`, `duotone`, `dark`) |
+| POST / DELETE | `/profile/background` | multipart `image` (max 8 MB) and optional `effect`; uploading makes the photo the background |
 
 ## Diary
 

@@ -109,6 +109,9 @@ Route::prefix('v1')->group(function () {
         Route::delete('profile/avatar', [ProfileController::class, 'removeAvatar']);
         Route::post('profile/banner', [ProfileController::class, 'uploadBanner']);
         Route::delete('profile/banner', [ProfileController::class, 'removeBanner']);
+        Route::patch('profile/background', [ProfileController::class, 'updateBackground']);
+        Route::post('profile/background', [ProfileController::class, 'uploadBackground']);
+        Route::delete('profile/background', [ProfileController::class, 'removeBackground']);
 
         Route::get('diary', [DiaryController::class, 'index']);
         Route::post('diary', [DiaryController::class, 'store']);

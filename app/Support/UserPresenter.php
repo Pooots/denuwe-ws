@@ -20,6 +20,7 @@ class UserPresenter
             'gender' => $user->gender,
             'avatar_url' => $user->avatarUrl(),
             'banner_url' => $user->bannerUrl(),
+            ...$user->profileBackground(),
             'headline' => $user->headline,
             'pronouns' => $user->pronouns,
             'location' => $user->location,
